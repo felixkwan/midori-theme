@@ -15,9 +15,11 @@
 <meta name="if:Photos link to permalink" content="0">
 <meta name="if:Show Archive" content="1">
 <meta name="if:Show Submit" content="1">
+<meta name="if:Show search form" content="1">
 <meta name="if:Show RSS" content="0">
 <meta name="if:Show date" content="1">
 <meta name="if:Show tags" content="1">
+
 
 <meta name="text:Google analytics ID" content="">
 <meta name="text:Archive link text" content="">
@@ -33,15 +35,18 @@
 
 <!-- Custom Color -->
 <meta name="color:Theme color" content="#000000">
-<meta name="color:Body background color" content="#ffffff">
-<meta name="color:Body text color" content="#363636">
-<meta name="color:Title text color" content="#2a2a2a">
-<meta name="color:Post meta color" content="#cccccc">
-<meta name="color:Page heading text color" content="#363636">
 <meta name="color:Accent color" content="#f2992e">
 <meta name="color:Link hover color" content="#363636">
+<meta name="color:Body background color" content="#ffffff">
+
+<meta name="color:Body text color" content="#363636">
+<meta name="color:Title text color" content="#2a2a2a">
 <meta name="color:Header text color" content="#ffffff">
+<meta name="color:Search text color" content="#ffffff">
 <meta name="color:Footer text color" content="#ffffff">
+<meta name="color:Page heading text color" content="#363636">
+<meta name="color:Post meta color" content="#cccccc">
+
 <meta name="color:Slider control color" content="#ffffff">
 <meta name="color:Light grey color" content="#eeeeee">
 
@@ -286,6 +291,40 @@ input {
     .sticky {
         padding: 12px 0;
     }
+}
+
+.search-form input {
+    border: none;
+    color: {color:Search text color};
+    font-size: 1em;
+    font-family: {text:Body text font}, sans-serif;
+    border-bottom: 1px solid {color:Search text color};
+    transition: border .25s ease;
+    -o-transition: border .25s ease;
+    -ms-transition: border .25s ease;
+    -moz-transition: border .25s ease;
+    -webkit-transition: border .25s ease;
+}
+
+.search-form input:focus {
+    border-bottom: 1px solid {color:Body text color};
+}
+
+.search-form input::-webkit-input-placeholder {
+    color: {color:Search text color};
+    font-family: {text:Body text font}, sans-serif;
+}
+
+.toggle-menu .search-form input {
+    text-align: center;
+}
+
+.toggle-menu .search-form input::-webkit-input-placeholder {
+    text-align: center;
+}
+
+.search-result-heading {
+    margin: 36px;
 }
 
 .toggle {
@@ -1266,6 +1305,12 @@ ul.pagination li span:after {
           <li><a href="/archive">{lang:Archive}</a></li>
           {/block:IfShowArchive}
 
+          {block:IfShowsearchform}
+          <li class="search not-link">
+                        <form class="search-form" action="/search" accept-charset="utf-8" method="get">
+                            <input class="input-search" type="text" name="q" id="search" size="16" value="{SearchQuery}" placeholder="{lang:Search}"/> </form></li>
+          {/block:IfShowsearchform}
+
       </ul>
 
       <a href="javascript:void(0)" id="toggle" class="toggle">
@@ -1301,6 +1346,12 @@ ul.pagination li span:after {
           {block:IfShowArchive}
           <li><a href="/archive">{lang:Archive}</a></li>
           {/block:IfShowArchive}
+
+          {block:IfShowsearchform}
+          <li class="search not-link">
+                        <form class="search-form" action="/search" accept-charset="utf-8" method="get">
+                            <input class="input-search" type="text" name="q" id="search" size="16" value="{SearchQuery}" placeholder="{lang:Search}"/> </form></li>
+          {/block:IfShowsearchform}
 
       </ul><!-- /.toggle-menu -->
 
