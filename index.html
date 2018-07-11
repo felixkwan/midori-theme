@@ -43,7 +43,7 @@
 <meta name="color:Header text color" content="#ffffff">
 <meta name="color:Footer text color" content="#ffffff">
 <meta name="color:Slider control color" content="#ffffff">
-<meta name="color:Note border color" content="#eeeeee">
+<meta name="color:Light grey color" content="#eeeeee">
 
 <!-- Accounts -->
 <meta name="text:URL Twitter" content=""/>
@@ -641,7 +641,7 @@ article.type_text video {
 }
 
 .type_video .video-container iframe {
-    background: {color:Note border color};
+    background: {color:Light grey color};
 }
 
 .type_video .video-container embed,
@@ -680,13 +680,23 @@ article.type_text video {
 
 .type_answer .avatar {
     display: inline-block;
-    margin-right: 20px;
     padding: 12px 0;
-    vertical-align:-webkit-baseline-middle;
+    vertical-align: top;
+    max-width: 24px;
 }
 
-.indexpage .avatar img {
-    max-width: 28px;
+.type_answer .note-item-asker .avatar {
+     margin-right: 20px;
+}
+
+.type_answer .note-item-answerer .avatar {
+    float: right;
+    margin-left: 20px;
+}
+
+.type_answer .note-item .avatar img {
+    max-width: 100%;
+    height: auto;
     border-radius: 50%;
     -o-border-radius: 50%;
     -ms-border-radius: 50%;
@@ -694,24 +704,77 @@ article.type_text video {
     -webkit-border-radius: 50%;
 }
 
+.type_answer .asker-question-wrap {
+    position: relative;
+	background: #eee;
+	border-radius: .4em;
+	padding: 12px;
+	display: inline-block;
+	width: 75%;
+	-o-border-radius: .4em;
+	-ms-border-radius: .4em;
+	-moz-border-radius: .4em;
+	-webkit-border-radius: .4em;
+}
+
+.type_answer .asker-question-wrap:after {
+    content: '';
+	position: absolute;
+	left: 0;
+	top: 24px;
+	width: 0;
+	height: 0;
+	border: 10px solid transparent;
+	border-right-color: #eee;
+	border-left: 0;
+	margin-top: -10px;
+	margin-left: -10px;
+}
+
+.type_answer .answerer-answer-wrap {
+    position: relative;
+	background: #eee;
+	border-radius: .4em;
+	padding: 12px;
+	display: inline-block;
+	width: 75%;
+	-o-border-radius: .4em;
+	-ms-border-radius: .4em;
+	-moz-border-radius: .4em;
+	-webkit-border-radius: .4em;
+	float: right;
+}
+
+.type_answer .answerer-answer-wrap:after {
+    content: '';
+	position: absolute;
+	right: 0;
+	top: 24px;
+	width: 0;
+	height: 0;
+	border: 10px solid transparent;
+	border-left-color: #eee;
+	border-right: 0;
+	margin-top: -10px;
+	margin-right: -10px;
+}
+
 .type_answer .asker,
-.type_answer .aswerer {
+.type_answer .answerer {
     display: inline-block;
     vertical-align: baseline;
 }
 
-.note-item {
-    margin-bottom: 12px;
+.type_answer .note-item {
+    margin-bottom: 24px;
 }
 
-.note-item-asker:after {
-    content:'';
-    height: 1px;
-    width: 16px;
-    margin: 16px 0;
-    padding: 0;
-    background-color: {color:Accent color};
-    display: block;
+.type_answer .replies {
+    margin-top: 24px;
+}
+
+.type_answer a {
+    color: {color:Body text color};
 }
 
 /* link */
@@ -744,20 +807,8 @@ ol.notes a {
     position: relative;
 }
 
-ol.notes a:after{
-    content: '';
-    display: block;
-    position: absolute;
-    left: 0;
-    height: 1px;
-    width: 0;
-    background: {color:Body text color};
-}
-
-ol.notes a:hover:after {
-    width: 100%;
-    right: 0;
-    transition: all .25s ease;
+ol.notes a:hover {
+    color: {color:Light grey color};
 }
 
 ol.notes .avatar {
@@ -840,7 +891,7 @@ ul.counts {
 }
 
 .share:hover {
-    background: {color:Note border color};
+    background: {color:Light grey color};
 }
 
 .share.active {
@@ -1439,27 +1490,33 @@ ul.pagination li span:after {
 <!-- answer post -->
 
 <div class="item-answer">
-    <div class="note-item note-item-asker">
+    <div class="note-item note-item-asker clearfix">
             <div class="avatar"><img class="asker-avatar" src="{AskerPortraitURL-64}" alt=""></div>
-        <div class="asker"><strong>{Asker}</strong> asked:</div>
 
-        <div class="asker-question">
-            {Question}
-        </div>
+            <div class="asker-question-wrap">
+                <div class="asker"><strong>{Asker}</strong> asked:</div>
+                <div class="asker-question">
+                    {Question}
+                </div>
+            </div>
 
     </div>
 
     {block:Answerer}
-    <div class="note-item note-item-answerer">
-            <div class="avatar"><img class="avatar answerer-avatar" src="{AnswererPortraitURL-64}" alt=""></div>
-        <div class="answerer"><strong>{Answerer}</strong> answered:</div>
+    <div class="note-item note-item-answerer clearfix">
+            <div class="avatar"><img class="answerer-avatar" src="{AnswererPortraitURL-64}" alt=""></div>
 
-        <div class="answerer-answer">
-            {Answer}
+        <div class="answerer-answer-wrap">
+            <div class="answerer"><strong>{Answerer}</strong> answered:</div>
+
+            <div class="answerer-answer">
+                {Answer}
+            </div>
         </div>
     </div>
 
     {/block:Answerer}
+
     <div class="replies">
             {Replies}
     </div>
