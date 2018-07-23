@@ -934,7 +934,7 @@ ul.counts {
 
 .share-control {
     width: 100%;
-    position: relative
+    position: relative;
 }
 
 .share {
@@ -1643,17 +1643,7 @@ ul.pagination li span:after {
         {/block:HasTags}
         {/block:IfShowtags}
 
-      <ul class="counts clearfix">
-      {block:NoteCount}
-      <li class="note-count">
-          {block:IndexPage}<a href="{Permalink}#notes">{/block:IndexPage}{block:PermalinkPage}<a class="tumblr-note-count" href="#notes">{/block:PermalinkPage}
-              {NoteCountWithLabel}
-          </a>
-      </li> <!-- /.note-count -->
-      {/block:NoteCount}
-      </ul> <!-- /.counts -->
-
-      <div class="share-control">
+    <div class="share-control">
 
             <a href="javascript:void(0)" class="share selector"><i class="fas fa-ellipsis-h"></i></a>
 
@@ -1675,10 +1665,18 @@ ul.pagination li span:after {
             </div>
       </div> <!-- /.share-control -->
 
-
+      <ul class="counts clearfix">
+      {block:NoteCount}
+      <li class="note-count">
+          {block:IndexPage}<a href="{Permalink}#notes">{/block:IndexPage}{block:PermalinkPage}<a class="tumblr-note-count" href="#notes">{/block:PermalinkPage}
+              {NoteCountWithLabel}
+          </a>
+      </li> <!-- /.note-count -->
+      {/block:NoteCount}
+      </ul> <!-- /.counts -->
                   {block:PermalinkPage}
                       {block:PostNotes}
-                              <div id="notes" class="notes-anchor clearfix">{PostNotes-64}</div>
+                              <div id="notes" class="clearfix">{PostNotes-64}</div>
                       {/block:PostNotes}
                   {/block:PermalinkPage}
           {/block:NoteCount}
