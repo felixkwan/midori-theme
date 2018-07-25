@@ -611,6 +611,7 @@ input {
   padding: 0;
   max-width: 1200px;
   overflow: hidden;
+  height: 100%;
 }
 
 @media only screen and (min-width: 1920px) {
@@ -862,6 +863,10 @@ article.type_text video {
 }
 
 /* notes */
+
+.post_notes {
+    clear: both;
+}
 
 ol.notes {
     list-style: none;
@@ -1643,7 +1648,24 @@ ul.pagination li span:after {
         {/block:HasTags}
         {/block:IfShowtags}
 
-    <div class="share-control">
+
+      <ul class="counts clearfix">
+      {block:NoteCount}
+      <li class="note-count">
+          {block:IndexPage}<a href="{Permalink}#notes">{/block:IndexPage}{block:PermalinkPage}<a class="tumblr-note-count" href="#notes">{/block:PermalinkPage}
+              {NoteCountWithLabel}
+          </a>
+      </li> <!-- /.note-count -->
+      {/block:NoteCount}
+      </ul> <!-- /.counts -->
+                  {block:PermalinkPage}
+                      {block:PostNotes}
+                              <section id="notes" class="post_notes">{PostNotes-64}</section>
+                      {/block:PostNotes}
+                  {/block:PermalinkPage}
+          {/block:NoteCount}
+
+          <div class="share-control">
 
             <a href="javascript:void(0)" class="share selector"><i class="fas fa-ellipsis-h"></i></a>
 
@@ -1664,22 +1686,6 @@ ul.pagination li span:after {
 
             </div>
       </div> <!-- /.share-control -->
-
-      <ul class="counts clearfix">
-      {block:NoteCount}
-      <li class="note-count">
-          {block:IndexPage}<a href="{Permalink}#notes">{/block:IndexPage}{block:PermalinkPage}<a class="tumblr-note-count" href="#notes">{/block:PermalinkPage}
-              {NoteCountWithLabel}
-          </a>
-      </li> <!-- /.note-count -->
-      {/block:NoteCount}
-      </ul> <!-- /.counts -->
-                  {block:PermalinkPage}
-                      {block:PostNotes}
-                              <div id="notes" class="clearfix">{PostNotes-64}</div>
-                      {/block:PostNotes}
-                  {/block:PermalinkPage}
-          {/block:NoteCount}
 
     </footer>
 {/block:Date}
