@@ -19,14 +19,23 @@
 <meta name="if:Show RSS" content="0">
 <meta name="if:Show date" content="1">
 <meta name="if:Show tags" content="1">
+<meta name="if:Show disqus comment" content="1">
 
 
 <meta name="text:Google analytics ID" content="">
 <meta name="text:Archive link text" content="">
 <meta name="text:Search placeholder text" content="">
+<meta name="text:Disqus shortname" content="">
 
 <meta name="text:Body text font" content="Poppins">
 <meta name="text:Title text font" content="Poppins">
+<meta name="text:Slide 1 caption" content="Illustrator:&nbsp赤｜AKA@ aka_outwork">
+<meta name="text:Slide 2 caption" content="Illustrator:&nbsp植田たてり｜UEDA tateri@ ue_tateri">
+<meta name="text:Slide 3 caption" content="Illustrator:&nbsp大宮いお｜OMIYA io@ omiya_io ">
+<meta name="text:Slide 1 link" content="https://twitter.com/aka_outwork">
+<meta name="text:Slide 2 link" content="https://twitter.com/ue_tateri?lang=ja">
+<meta name="text:Slide 3 link" content="http://yukue.tumblr.com/">
+
 
 <meta name="select:Date format" content="relative-dates" title="Relative dates">
 <meta name="select:Date format" content="us" title="US">
@@ -1365,9 +1374,9 @@ ul.pagination li span:after {
     <div class="flexslider">
       <ul class="slides">
       <li><a href="http://illustration.media/post/170376546827"><img src="https://78.media.tumblr.com/266cd75a7e9454ba935d38149ff9d259/tumblr_p3gmaa2NPS1sd6eqmo1_1280.png"/></a>
-          <p class="flex-caption">Illustrator:&nbsp赤｜AKA@<a href="https://twitter.com/aka_outwork">aka_outwork</a></p></li>
-      <li><a href="http://illustration.media/post/169534473207"><img src="https://78.media.tumblr.com/5f9d24c3b2f1ba8d7549e0b8c7967358/tumblr_p2bxa0t5Hu1sd6eqmo1_1280.png"/></a><p class="flex-caption">Illustrator:&nbsp植田たてり｜UEDA tateri@<a href="https://twitter.com/ue_tateri?lang=ja">ue_tateri</a></p></li>
-      <li><a href="http://illustration.media/post/169770335787"><img src="https://78.media.tumblr.com/518bc550518964606e124026fd2fc895/tumblr_p2ndwqYxfH1sd6eqmo1_1280.png"/></a><p class="flex-caption">Illustrator:&nbsp大宮いお｜OMIYA io@<a href="http://yukue.tumblr.com/">omiya_io</a></p></li>
+          <p class="flex-caption"><a href="{text:Slide 1 link}">{text:Slide 1 caption}</a></p></li>
+      <li><a href="http://illustration.media/post/169534473207"><img src="https://78.media.tumblr.com/5f9d24c3b2f1ba8d7549e0b8c7967358/tumblr_p2bxa0t5Hu1sd6eqmo1_1280.png"/></a><p class="flex-caption"><a href="{text:Slide 2 link}">{text:Slide 2 caption}</a></p></li>
+      <li><a href="http://illustration.media/post/169770335787"><img src="https://78.media.tumblr.com/518bc550518964606e124026fd2fc895/tumblr_p2ndwqYxfH1sd6eqmo1_1280.png"/></a><p class="flex-caption"><a href="{text:Slide 3 link}">{text:Slide 3 caption}</a></p></li>
       </ul>
     </div> <!-- /.slider -->
 
@@ -1692,6 +1701,7 @@ ul.pagination li span:after {
 {block:PermalinkPage}
     {block:Date}
 
+        {block:IfShowdisquscomment}
         {block:IfDisqusShortname}
         <section class="comments">
             <div id="disqus_thread"></div>
@@ -1706,6 +1716,7 @@ ul.pagination li span:after {
             <a href="https://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
         </section>
         {/block:IfDisqusShortname}
+        {/block:IfShowdisquscomment}
 
     {/block:Date}
 {/block:PermalinkPage}
