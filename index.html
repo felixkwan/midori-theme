@@ -1479,7 +1479,7 @@ ul.pagination li span:after {
 {block:Photoset}
 
 <!-- photoset post -->
-  <div class="post-figure photoset-grid {block:Indexpage}photoset-grid-lightbox"{/block:IndexPage} data-layout="{PhotosetLayout}" data-id="photoset{PostID}">
+  <div class="post-figure photoset-grid {block:Indexpage}photoset-grid-lightbox{/block:IndexPage}" data-layout="{PhotosetLayout}" data-id="photoset{PostID}">
 
     {block:Photos}
         <img src="{PhotoURL-500}" {block:HighRes}data-highres="{PhotoURL-HighRes}"{/block:HighRes} {block:Caption} alt="{Caption}"{/block:caption} data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}"/>
