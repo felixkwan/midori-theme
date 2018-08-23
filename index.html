@@ -1411,7 +1411,7 @@ ul.pagination li span:after {
 <div class="grid-sizer"></div>
 
 {block:Posts}
-<article class="type_{PostType} {block:Caption}with-cap{/block:Caption} {block:Photoset}type_photoset{/block:Photoset} {block:Date}data-post-id="{PostID}"{/block:Date}">
+<article id="{PostID}" class="type_{PostType} {block:Caption}with-cap{/block:Caption} {block:Photoset}type_photoset{/block:Photoset} {block:Date}data-post-id="{PostID}"{/block:Date}">
 <div class="post-inner">
 <div class="post-inner-link">
 
@@ -1490,6 +1490,27 @@ ul.pagination li span:after {
   {/block:Caption}
 
 {/block:Photoset}
+
+
+
+{block:Panorama}
+
+<!-- Panorama Post -->
+
+{block:IndexPage}
+  {LinkOpenTag}<img src="{PhotoURL-500}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" />{LinkCloseTag}
+{/block:IndexPage}
+
+{block:PermalinkPage}
+  {LinkOpenTag}<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />{LinkCloseTag}
+{/block:PermalinkPage}
+
+{block:Caption}
+<div class="content">
+        {Caption}
+</div>
+{/block:Caption}
+{/block:Panorama}
 
 
 {block:Video}
