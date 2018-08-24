@@ -1382,9 +1382,7 @@ ul.pagination li span:after {
 
 
 {block:Text}
-
 <!-- text post -->
-
 {block:Title}
 <div class="post-header">
     <h2>{block:IndexPage}<a href="{Permalink}">{/block:IndexPage}{Title}{block:IndexPage}</a>{/block:IndexPage}</h2>
@@ -1396,9 +1394,7 @@ ul.pagination li span:after {
 
 
 {block:Photo}
-
 <!-- photo post -->
-
 <figure class="post-figure">
 {block:IfPhotoslinktopermalink}
   {block:IndexPage}<a href="{Permalink}" title="{Title}">{/block:IndexPage}
@@ -1434,12 +1430,10 @@ ul.pagination li span:after {
           {Caption}
   </figcaption>
   {/block:Caption}
-
 {/block:Photo}
 
 
 {block:Photoset}
-
 <!-- photoset post -->
   <div class="post-figure photoset-grid {block:Indexpage}photoset-grid-lightbox{/block:IndexPage}" data-layout="{PhotosetLayout}" data-id="photoset{PostID}">
 
@@ -1453,14 +1447,11 @@ ul.pagination li span:after {
           {Caption}
   </div>
   {/block:Caption}
-
 {/block:Photoset}
 
 
 {block:Video}
-
 <!-- Video Post -->
-
 <div class="video-container" id="video-player">
         {VideoEmbed-700}
 </div>
@@ -1473,15 +1464,12 @@ ul.pagination li span:after {
 {/block:Video}
 
 {block:Audio}
-
 <!-- Audio Post -->
-
 {block:AudioEmbed}
         <div class="audio-player">
                 {AudioEmbed}
         </div>
 {/block:AudioEmbed}
-
 {block:Caption}
 <div class="content">
         {Caption}
@@ -1490,9 +1478,7 @@ ul.pagination li span:after {
 {/block:Audio}
 
 {block:Quote}
-
 <!-- quote post -->
-
 <div class="item-quote">
     <blockquote class="{Length}">
         {Quote}
@@ -1504,9 +1490,7 @@ ul.pagination li span:after {
 {/block:Quote}
 
 {block:link}
-
 <!-- link post -->
-
 <div class="link-wrapper">
     <a {Target} href="{URL}" class="link">{Name}&nbsp;<i class="fas fa-arrow-right"></i></a>
 </div>
@@ -1515,13 +1499,10 @@ ul.pagination li span:after {
         {Description}
 </div>
 {/block:Description}
-
 {/block:Link}
 
 {block:Answer}
-
 <!-- answer post -->
-
 <div class="item-answer">
     <div class="note-item note-item-asker clearfix">
             <div class="avatar"><img class="asker-avatar" src="{AskerPortraitURL-64}" alt=""></div>
@@ -1558,7 +1539,6 @@ ul.pagination li span:after {
 {/block:Answer}
 
 {block:Chat}
-
 <!-- Chat Post -->
 {block:Title}
 <div class="post-header">
