@@ -12,6 +12,7 @@
 {/block:Description}
 
 <!-- Tumblr Theme configuration -->
+<meta name="if:Photos link to permalink" content="0">
 <meta name="if:Show Archive" content="1">
 <meta name="if:Show Submit" content="1">
 <meta name="if:Show search form" content="1">
@@ -1395,13 +1396,32 @@ ul.pagination li span:after {
 {block:Photo}
 <!-- photo post -->
 <figure class="post-figure">
-  {block:IndexPage}
-  <a href="{Permalink}"><img src="{PhotoURL-500}" {block:HighRes} data-highres="{PhotoURL-HighRes}"{/block:HighRes} alt="{PhotoAlt}" ></a>
-  {/block:IndexPage}
+{block:IfPhotoslinktopermalink}
+  {block:IndexPage}<a href="{Permalink}" title="{Title}">{/block:IndexPage}
+  {block:PermalinkPage}<a href="{Permalink}" onclick="Tumblr.Lightbox.init([{
+      'width'    : '{PhotoWidth-HighRes}',
+      'height'   : '{PhotoHeight-HighRes}',
+      'low_res'  : '{PhotoURL-HighRes}',
+      'high_res' : '{PhotoURL-HighRes}'
+    }]); return false;">{/block:PermalinkPage}
+  	{block:IndexPage}<img src="{PhotoURL-500}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" />{/block:IndexPage}
+  	{block:PermalinkPage}<img src="{PhotoURL-HighRes}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" />{/block:PermalinkPage}
+  </a>
+{/block:IfPhotoslinktopermalink}
 
-                          {block:PermalinkPage}
-                              {LinkOpenTag}<img src="{PhotoURL-HighRes}" alt="{PhotoAl}">{LinkCloseTag}
-                          {/block:PermalinkPage}
+{block:IfNotPhotoslinktopermalink}
+  {LinkOpenTag}
+  <a href="{Permalink}" onclick="Tumblr.Lightbox.init([{
+      'width'    : '{PhotoWidth-HighRes}',
+      'height'   : '{PhotoHeight-HighRes}',
+      'low_res'  : '{PhotoURL-HighRes}',
+      'high_res' : '{PhotoURL-HighRes}'
+    }]); return false;">
+      {block:IndexPage}<img src="{PhotoURL-500}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" />{/block:IndexPage}
+      {block:PermalinkPage}<img src="{PhotoURL-HighRes}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" />{/block:PermalinkPage}
+  </a>
+  {LinkCloseTag}
+{/block:IfNotPhotoslinktopermalink}
 
 </figure> <!-- /.post-figure -->
 
