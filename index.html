@@ -1470,6 +1470,11 @@ ul.pagination li span:after {
                 {AudioEmbed}
         </div>
 {/block:AudioEmbed}
+
+{block:ExternalAudio}
+  <a href="{ExternalAudioURL}">{lang:Download}</a>
+{/block:ExternalAudio}
+
 {block:Caption}
 <div class="content">
         {Caption}
@@ -1492,7 +1497,7 @@ ul.pagination li span:after {
 {block:link}
 <!-- link post -->
 <div class="link-wrapper">
-    <a {Target} href="{URL}" class="link">{Name}&nbsp;<i class="fas fa-arrow-right"></i></a>
+    <a href="{URL}" class="link" {Target} >{Name}&nbsp;<i class="fas fa-arrow-right"></i></a>
 </div>
 {block:Description}
 <div class="content">
