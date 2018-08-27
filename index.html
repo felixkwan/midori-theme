@@ -1388,7 +1388,6 @@ s.parentNode.insertBefore(g,s)}(document,'script'));
 
 
 {block:Text}
-<!-- text post -->
 {block:Title}
 <div class="post-header">
     <h2>{block:IndexPage}<a href="{Permalink}">{/block:IndexPage}{Title}{block:IndexPage}</a>{/block:IndexPage}</h2>
@@ -1396,11 +1395,11 @@ s.parentNode.insertBefore(g,s)}(document,'script'));
 {/block:Title}
 {block:Body}<div class="content">{Body}</div>{/block:Body}
 {/block:Text}
+<!-- text post -->
 
 
 
 {block:Photo}
-<!-- photo post -->
 <figure class="post-figure">
 {block:IfPhotoslinktopermalink}
   {block:IndexPage}<a href="{Permalink}" title="{Title}">{/block:IndexPage}
@@ -1429,7 +1428,7 @@ s.parentNode.insertBefore(g,s)}(document,'script'));
   {LinkCloseTag}
 {/block:IfNotPhotoslinktopermalink}
 
-</figure> <!-- /.post-figure -->
+</figure>
 
   {block:Caption}
   <figcaption class="content">
@@ -1437,10 +1436,9 @@ s.parentNode.insertBefore(g,s)}(document,'script'));
   </figcaption>
   {/block:Caption}
 {/block:Photo}
-
+<!-- photo post -->
 
 {block:Photoset}
-<!-- photoset post -->
   <figure class="post-figure photoset-grid {block:Indexpage}photoset-grid-lightbox{/block:IndexPage}" data-layout="{PhotosetLayout}" data-id="photoset{PostID}">
 
     {block:Photos}
@@ -1454,10 +1452,9 @@ s.parentNode.insertBefore(g,s)}(document,'script'));
   </figcaption>
   {/block:Caption}
 {/block:Photoset}
-
+<!-- photoset post -->
 
 {block:Video}
-<!-- Video Post -->
 <div class="video-container" id="video-player">
         {VideoEmbed-700}
 </div>
@@ -1468,9 +1465,9 @@ s.parentNode.insertBefore(g,s)}(document,'script'));
 </div>
 {/block:Caption}
 {/block:Video}
+<!-- Video Post -->
 
 {block:Audio}
-<!-- Audio Post -->
 {block:AudioEmbed}
         <div class="audio-player">
                 {AudioEmbed}
@@ -1487,9 +1484,9 @@ s.parentNode.insertBefore(g,s)}(document,'script'));
 </div>
 {/block:Caption}
 {/block:Audio}
+<!-- Audio Post -->
 
 {block:Quote}
-<!-- quote post -->
 <div class="item-quote">
     <blockquote class="{Length}">
         {Quote}
@@ -1499,9 +1496,9 @@ s.parentNode.insertBefore(g,s)}(document,'script'));
     {/block:Source}
 </div>
 {/block:Quote}
+<!-- quote post -->
 
 {block:link}
-<!-- link post -->
 <div class="link-wrapper">
     <a href="{URL}" class="link" {Target} >{Name}&nbsp;<i class="fas fa-arrow-right"></i></a>
 </div>
@@ -1511,9 +1508,9 @@ s.parentNode.insertBefore(g,s)}(document,'script'));
 </div>
 {/block:Description}
 {/block:Link}
+<!-- link post -->
 
 {block:Answer}
-<!-- answer post -->
 <div class="item-answer">
     <div class="note-item note-item-asker clearfix">
             <div class="avatar"><img class="asker-avatar" src="{AskerPortraitURL-64}" alt=""></div>
@@ -1548,9 +1545,9 @@ s.parentNode.insertBefore(g,s)}(document,'script'));
 
 </div>
 {/block:Answer}
+<!-- answer post -->
 
 {block:Chat}
-<!-- Chat Post -->
 {block:Title}
 <div class="post-header">
   <h2>{block:IndexPage}<a href="{Permalink}">{/block:IndexPage}{Title}{block:IndexPage}</a>{/block:IndexPage}</h2>
@@ -1566,7 +1563,7 @@ s.parentNode.insertBefore(g,s)}(document,'script'));
   </ul>
 </div>
 {/block:Chat}
-
+<!-- Chat Post -->
 
 
 {block:Date}
