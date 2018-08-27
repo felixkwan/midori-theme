@@ -1240,6 +1240,17 @@ ul.pagination li span:after {
 </style>
 
 <style>{CustomCSS}</style>
+
+{block:IfGoogleAnalyticsID}
+<script>
+var _gaq=[['_setAccount','{text:Google Analytics ID}'],['_trackPageview']];
+(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+{/block:IfGoogleAnalyticsID}
+
+
 </head>
 
 <body id="home" class="{block:indexPage}indexpage{/block:IndexPage} {block:PermalinkPage}permalinkpage{/block:PermalinkPage}">
@@ -1721,18 +1732,6 @@ ul.pagination li span:after {
     </div> <!-- /.footer-wrapper -->
 
 </div> <!-- /.wrapper -->
-
-
-
-
-{block:IfGoogleAnalyticsID}
-<script>
-var _gaq=[['_setAccount','{text:Google Analytics ID}'],['_trackPageview']];
-(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-s.parentNode.insertBefore(g,s)}(document,'script'));
-</script>
-{/block:IfGoogleAnalyticsID}
 </body>
 
 
