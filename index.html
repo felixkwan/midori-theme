@@ -1384,13 +1384,11 @@ s.parentNode.insertBefore(g,s)}(document,'script'));
 {block:Posts}
 <article id="{PostID}" class="type_{PostType} {block:Caption}with-cap{/block:Caption} {block:Photoset}type_photoset{/block:Photoset} {block:Date}data-post-id="{PostID}"{/block:Date}">
 <div class="post-inner">
-<div class="post-inner-link">
-
-
+  
 {block:Text}
 {block:Title}
 <div class="post-header">
-    <h2>{block:IndexPage}<a href="{Permalink}">{/block:IndexPage}{Title}{block:IndexPage}</a>{/block:IndexPage}</h2>
+    <h2>{block:IndexPage}<a href="{Permalink}">{Title}</a>{/block:IndexPage} {block:PermalinkPage}{Title}{/block:PermalinkPage}</h2>
 </div>
 {/block:Title}
 {block:Body}<div class="content">{Body}</div>{/block:Body}
@@ -1650,7 +1648,6 @@ s.parentNode.insertBefore(g,s)}(document,'script'));
     {/block:Date}
 {/block:PermalinkPage}
 
-</div> <!-- /. post-inner-link -->
 </div> <!-- /.post-inner -->
 
 </article> <!-- /.post -->
