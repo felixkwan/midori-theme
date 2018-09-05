@@ -688,9 +688,15 @@ article.type_text video {
 
 /* photo */
 
-.type_photo img {
-    width: 100%;
-}
+article.type_photo img,
+article.type_link img,
+article.type_text img,
+article figure img,
+article blockquote img{
+        width: 100%;
+        height: auto;
+        vertical-align: bottom;
+    }
 
 .content blockquote {
     border-left: 1px solid {color:Body text color};
@@ -1384,7 +1390,7 @@ s.parentNode.insertBefore(g,s)}(document,'script'));
 {block:Posts}
 <article id="{PostID}" class="type_{PostType} {block:Caption}with-cap{/block:Caption} {block:Photoset}type_photoset{/block:Photoset} {block:Date}data-post-id="{PostID}"{/block:Date}">
 <div class="post-inner">
-  
+
 {block:Text}
 {block:Title}
 <div class="post-header">
