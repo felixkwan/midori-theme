@@ -245,54 +245,6 @@ input {
     }
 }
 
-.nav .menu {
-    display: flex;
-    margin-left: auto;
-    font-size: .9em;
-}
-
-.nav .menu li {
-    margin: 0;
-    text-align: right;
-    margin-right: 16px;
-}
-
-.nav .menu li a {
-    color: {color:Header text color};
-}
-
-@media only screen and (min-width: 768px) {
-    .nav .menu li:last-child {
-        margin-right: 36px;
-    }
-}
-
-@media only screen and (max-width: 767px) {
-    .nav .menu {
-        display: none;
-    }
-}
-
-.sticky {
-    position: fixed;
-    top: 0;
-    left: 0;
-    border-top: 0;
-    background: {color:Theme color};
-    padding: 20px 0;
-    margin: 0;
-    transition: all 0.33s ease;
-    -o-transition: all 0.33s ease;
-    -ms-transition: all 0.33s ease;
-    -moz-transition: all 0.33s ease;
-    -webkit-transition: all 0.33s ease;
-}
-
-@media only screen and (max-width: 767px) {
-    .sticky {
-        padding: 12px 0;
-    }
-}
 
 .search-form input {
     border: none;
@@ -337,12 +289,6 @@ input {
     z-index: 12;
 }
 
-@media only screen and (min-width: 768px) {
-    .toggle {
-        display: none;
-    }
-}
-
 .toggle div {
     position: relative;
     padding: 0;
@@ -368,6 +314,11 @@ input {
     top: 80px;
     margin-top: 40px;
     transform: translate3d(0, -25%, 0);
+    transition: all .33s ease;
+    -o-transition: all .33s ease;
+    -ms-transition: all .33s ease;
+    -moz-transition: all .33s ease;
+    -webkit-transition: all .33s ease;
 }
 
 .toggle-menu li a {
@@ -391,12 +342,6 @@ input {
 .toggle-menu li a:hover:after {
     transform: scaleX(1);
     transform-origin: center;
-}
-
-@media only screen and (min-width: 768px) {
-    .toggle-menu {
-        display: none;
-    }
 }
 
 .toggle-menu.show-up {
@@ -1268,41 +1213,6 @@ s.parentNode.insertBefore(g,s)}(document,'script'));
 
   <div class="nav">
     <a href="{BlogURL}"><h2 class="site-title">{Title}</h2></a>
-        <ul class="menu">
-
-          {block:IfShowhomelink}
-          <li><a href="/">{text:Home link text}</a></li>
-          {/block:IfShowhomelink}
-
-          {block:HasPages}
-          {block:Pages}
-          <li><a href="{URL}">{Label}</a></li>
-          {/block:Pages}
-          {/block:HasPages}
-
-          {block:AskEnabled}
-          <li><a href="/ask">{AskLabel}</a></li>
-          {/block:AskEnabled}
-
-          {block:SubmissionsEnabled}
-          <li><a href="/submit">{SubmitLabel}</a></li>
-          {/block:SubmissionsEnabled}
-
-          {block:IfShowRSS}
-          <li><a href="{RSS}">{lang:RSS}</a></li>
-          {/block:IfShowRSS}
-
-          {block:IfShowArchive}
-          <li><a href="/archive">{lang:Archive}</a></li>
-          {/block:IfShowArchive}
-
-          {block:IfShowsearchform}
-          <li class="search not-link">
-                        <form class="search-form" action="/search" accept-charset="utf-8" method="get">
-                            <input class="input-search" type="text" name="q" id="search" size="16" value="{SearchQuery}" placeholder="{lang:Search}"/> </form></li>
-          {/block:IfShowsearchform}
-
-      </ul>
 
       <a href="javascript:void(0)" id="toggle" class="toggle">
           <div></div>
@@ -1631,29 +1541,6 @@ s.parentNode.insertBefore(g,s)}(document,'script'));
     </footer>
 {/block:Date}
 
-{block:PermalinkPage}
-    {block:Date}
-
-        {block:IfShowdisquscomment}
-        {block:IfDisqusShortname}
-        <section class="comments">
-            <div id="disqus_thread"></div>
-            <script type="text/javascript">
-              (function() {
-               var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-               dsq.src = 'https://{text:Disqus Shortname}.disqus.com/embed.js';
-               (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-              })();
-            </script>
-            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript={text:Disqus Shortname}">comments powered by Disqus.</a></noscript>
-            <a href="https://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-        </section>
-        {/block:IfDisqusShortname}
-        {/block:IfShowdisquscomment}
-
-    {/block:Date}
-{/block:PermalinkPage}
-
 </div> <!-- /.post-inner -->
 
 </article> <!-- /.post -->
@@ -1757,33 +1644,6 @@ $(function() {
 
   });
 });
-</script>
-
-<script>
-
-    $(document).ready(function() {
-			// grab the initial top offset of the navigation
-		   	var stickyNavTop = $('.nav').offset().top;
-
-		   	// our function that decides weather the navigation bar should have "fixed" css position or not.
-		   	var stickyNav = function(){
-			var scrollTop = $(window).scrollTop(); // our current vertical position from the top
-
-			    // if we've scrolled more than the navigation, change its position to fixed to stick to top,
-			    // otherwise change it back to relative
-			    if (scrollTop > stickyNavTop) {
-			        $('.nav').addClass('sticky');
-			    } else {
-			        $('.nav').removeClass('sticky');
-			    }
-			};
-
-			stickyNav();
-			// and run it again every time you scroll
-			$(window).scroll(function() {
-				stickyNav();
-			});
-		});
 </script>
 
 <script src="https://static.tumblr.com/wdg4six/DaLnhncof/jquery.flexslider.min.js"></script>
