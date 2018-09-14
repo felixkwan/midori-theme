@@ -28,14 +28,14 @@
 <meta name="select:Date format" content="jp" title="JP">
 
 <!-- Custom Color -->
-<meta name="color:Accent color" content="#f2992e">
+<meta name="color:Accent color" content="#000000">
 <meta name="color:Link hover color" content="#363636">
 <meta name="color:Body background color" content="#ffffff">
 <meta name="color:Post Background color" content="#f9f9f9">
 <meta name="color:Chat Background color" content="#fefefe">
 <meta name="color:Answer Background color" content="#ffffff">
 <meta name="color:Video Background color" content="#eeeeee">
-<meta name="color:Link Background color" content="#f2992e">
+<meta name="color:Link Background color" content="#000000">
 <meta name="color:Footer Background color" content="#fefefe">
 
 <meta name="color:Body text color" content="#363636">
@@ -229,7 +229,7 @@ input {
     color: {color:Body text color};
     font-size: 1em;
     font-family: {text:Body text font}, sans-serif;
-    border-bottom: 1px solid {color:Search text color};
+    border-bottom: 1px solid #eee;
     transition: border 0.25s ease;
     -o-transition: border 0.25s ease;
     -ms-transition: border 0.25s ease;
@@ -1189,10 +1189,10 @@ s.parentNode.insertBefore(g,s)}(document,'script'));
 <!-- photo post -->
 
 {block:Photoset}
-  <figure class="post-figure photoset-grid {block:Indexpage}photoset-grid-lightbox{/block:IndexPage}" data-layout="{PhotosetLayout}" data-id="photoset{PostID}">
+  <figure class="post-figure photoset-grid {block:IndexPage}photoset-grid-lightbox{/block:IndexPage}" data-layout="{PhotosetLayout}" data-id="photoset{PostID}">
 
     {block:Photos}
-        <img src="{PhotoURL-500}" {block:HighRes}data-highres="{PhotoURL-HighRes}"{/block:HighRes} {block:Caption} alt="{Caption}"{/block:caption} data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}"/>
+        {block:IndexPage}<a href="{Permalink}">{/block:IndexPage}<img src="{PhotoURL-500}" {block:HighRes}data-highres="{PhotoURL-HighRes}"{/block:HighRes} {block:Caption} alt="{Caption}"{/block:caption} data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}"/>{block:IndexPage}</a>{/block:IndexPage}
     {/block:Photos}
   </figure>
 
