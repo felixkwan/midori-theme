@@ -12,32 +12,15 @@
 {/block:Description}
 
 <!-- Tumblr Theme configuration -->
-<meta name="if:Photos link to permalink" content="0">
 <meta name="if:Show Archive" content="1">
 <meta name="if:Show Submit" content="1">
 <meta name="if:Show search form" content="1">
 <meta name="if:Show RSS" content="0">
 <meta name="if:Show date" content="1">
 <meta name="if:Show tags" content="1">
-<meta name="if:Show disqus comment" content="1">
-
-
-<meta name="text:Google analytics ID" content="">
-<meta name="text:Disqus shortname" content="">
 
 <meta name="text:Body text font" content="Poppins">
 <meta name="text:Title text font" content="Poppins">
-
-<meta name="text:Slide 1 img" content="https://78.media.tumblr.com/266cd75a7e9454ba935d38149ff9d259/tumblr_p3gmaa2NPS1sd6eqmo1_1280.png">
-<meta name="text:Slide 2 img" content="https://78.media.tumblr.com/5f9d24c3b2f1ba8d7549e0b8c7967358/tumblr_p2bxa0t5Hu1sd6eqmo1_1280.png">
-<meta name="text:Slide 3 img" content="https://78.media.tumblr.com/518bc550518964606e124026fd2fc895/tumblr_p2ndwqYxfH1sd6eqmo1_1280.png">
-<meta name="text:Slide 1 caption" content="Illustrator:&nbsp赤｜AKA@ aka_outwork">
-<meta name="text:Slide 2 caption" content="Illustrator:&nbsp植田たてり｜UEDA tateri@ ue_tateri">
-<meta name="text:Slide 3 caption" content="Illustrator:&nbsp大宮いお｜OMIYA io@ omiya_io">
-<meta name="text:Slide 1 link" content="https://twitter.com/aka_outwork">
-<meta name="text:Slide 2 link" content="https://twitter.com/ue_tateri?lang=ja">
-<meta name="text:Slide 3 link" content="https://yukue.tumblr.com/">
-
 
 <meta name="select:Date format" content="relative-dates" title="Relative dates">
 <meta name="select:Date format" content="us" title="US">
@@ -45,21 +28,25 @@
 <meta name="select:Date format" content="jp" title="JP">
 
 <!-- Custom Color -->
-<meta name="color:Theme color" content="#000000">
 <meta name="color:Accent color" content="#f2992e">
 <meta name="color:Link hover color" content="#363636">
 <meta name="color:Body background color" content="#ffffff">
+<meta name="color:Post Background color" content="#f9f9f9">
+<meta name="color:Chat Background color" content="#fefefe">
+<meta name="color:Answer Background color" content="#ffffff">
+<meta name="color:Video Background color" content="#eeeeee">
+<meta name="color:Link Background color" content="#f2992e">
+<meta name="color:Footer Background color" content="#fefefe">
 
 <meta name="color:Body text color" content="#363636">
-<meta name="color:Title text color" content="#2a2a2a">
-<meta name="color:Header text color" content="#ffffff">
+<meta name="color:Title text color" content="#363636">
+<meta name="color:Header text color" content="#363636">
 <meta name="color:Search text color" content="#ffffff">
-<meta name="color:Footer text color" content="#ffffff">
+<meta name="color:Footer text color" content="#cccccc">
+<meta name="color:Link text color" content="#ffffff">
 <meta name="color:Page heading text color" content="#363636">
 <meta name="color:Post meta color" content="#cccccc">
-
 <meta name="color:Slider control color" content="#ffffff">
-<meta name="color:Light grey color" content="#eeeeee">
 
 <!-- Accounts -->
 <meta name="text:URL Twitter" content=""/>
@@ -67,6 +54,7 @@
 <meta name="text:URL Google" content=""/>
 <meta name="text:URL Email" content=""/>
 <meta name="text:URL Instagram" content=""/>
+<meta name="text:Google analytics ID" content="">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -190,22 +178,20 @@ input {
   top: 0;
   margin: 0;
   padding: 0;
-  height: 100vh;
   overflow: hidden;
-}
-
-@media only screen and (max-width: 767px) {
-    .header-wrap {
-        height: 408px;
-    }
 }
 
 .header-wrap .header {
   width: 100%;
   z-index: 12;
-  position: absolute;
   text-transform: uppercase;
   color: {color:Header text color};
+  padding: 20px 0;
+  transition: all .25s ease;
+  -o-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -webkit-transition: all .25s ease;
 }
 
 .header a {
@@ -217,21 +203,20 @@ input {
 }
 
 .site-title {
-  margin: 0;
   padding: 0 36px;
   letter-spacing: 2px;
   background: transparent;
   font-weight: 600;
+  display: inline-block;
 }
 
 .nav {
     z-index: 12;
     top: 0;
-    padding: 36px 0 24px 0;
+    margin-top: 12px;
+    padding: 36px 0 12px 0;
     width: 100%;
-    position: absolute;
-    display: flex;
-    vertical-align: -webkit-baseline;
+    vertical-align: baseline;
     transition: all .25s ease;
     -o-transition: all .25s ease;
     -moz-transition: all .25s ease;
@@ -239,15 +224,9 @@ input {
     -webkit-transition: all .25s ease;
 }
 
-@media only screen and (min-width: 768px) {
-    .nav {
-        padding-top: 60px;
-    }
-}
-
-
 .search-form input {
     border: none;
+    padding: 7px 7px 7px 0;
     color: {color:Search text color};
     font-size: 1em;
     font-family: {text:Body text font}, sans-serif;
@@ -259,21 +238,22 @@ input {
     -webkit-transition: border 0.25s ease;
 }
 
-.search-form input:focus {
+.input-search:focus {
     border-bottom: 1px solid {color:Body text color};
 }
 
-.search-form input::-webkit-input-placeholder {
-    color: {color:Search text color};
+.input-search::placeholder {
+    color: {color:Body text color};
     font-family: {text:Body text font}, sans-serif;
+    transition: all .25s ease;
+    -o-transition: all .25s ease;
+    -ms-transition: all .25s ease;
+    -moz-transition: all .25s ease;
+    -webkit-transition: all .25s ease;
 }
 
-.toggle-menu .search-form input {
-    text-align: center;
-}
-
-.toggle-menu .search-form input::-webkit-input-placeholder {
-    text-align: center;
+.input-search:focus::placeholder {
+    color: #cccccc;
 }
 
 .search-result-heading {
@@ -281,18 +261,18 @@ input {
 }
 
 .toggle {
-    margin-left: auto;
     margin-right: 36px;
     margin-top: 4px;
     width: 36px;
     height: 28px;
-    z-index: 12;
+    z-index: 99;
+    float: right;
 }
 
 .toggle div {
     position: relative;
     padding: 0;
-    padding-bottom: 10px;
+    padding-bottom: 6px;
 }
 
 .toggle div:before {
@@ -300,19 +280,22 @@ input {
     right: 0;
     top: 0;
     display: block;
-    width: 36px;
+    width: 28px;
     height: 2px;
     position: absolute;
-    background: {color:Footer text color};
+    background: {color:Body text color};
 }
 
 .toggle-menu {
     position: absolute;
-    text-align: center;
+    top: 0;
+    left: 36px;
     width: 100%;
+    height: 0;
     opacity: 0;
-    top: 80px;
-    margin-top: 40px;
+    visibility: hidden;
+    padding: 12px 0;
+    font-size: .8em;
     transform: translate3d(0, -25%, 0);
     transition: all .33s ease;
     -o-transition: all .33s ease;
@@ -321,8 +304,16 @@ input {
     -webkit-transition: all .33s ease;
 }
 
+.toggle-menu li {
+    display: inline-block;
+    margin-right: 12px;
+}
+
+.toggle-menu li:last-child {
+    margin-right: 0;
+}
+
 .toggle-menu li a {
-    padding: 0 12px;
     position: relative;
     margin: 16px 0;
 }
@@ -345,8 +336,10 @@ input {
 }
 
 .toggle-menu.show-up {
+    height: auto;
     transform: translate3d(0, 0, 0);
     opacity: 1;
+    visibility: visible;
     transition: all .33s ease;
     -o-transition: all .33s ease;
     -ms-transition: all .33s ease;
@@ -354,216 +347,23 @@ input {
     -webkit-transition: all .33s ease;
 }
 
-/* slider */
-
-.flexslider {
-  background: transparent;
-  position: relative;
-  overflow: hidden;
-  height: 100vh;
-}
-
-@media only screen and (max-width: 767px) {
-    .flex-viewport {
-        max-height: 400px;
-    }
-    .flexslider {
-        height: 400px;
-    }
-}
-
-.slides img {
-    height: auto;
-    width: 100%;
-    -moz-user-select: none;
-}
-
-.slides,
-.slides > li {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  position: relative;
-}
-
-.flex-control-nav {
-    display: none;
-}
-
-.flex-control {
-    position: absolute;
-    margin: 36px 0;
-    width: 100%;
-    text-align: center;
-    bottom: 0;
-    height: 48px;
-}
-
-.flex-control li {
-    display: inline-block;
-    margin: 0 8px;
-    width: 48px;
-    height: 2px;
-    content: '';
-    cursor: pointer;
-    position: relative;
-}
-
-.flex-control li:not(.flex-active) {
-    background: {color:Slider control color};
-}
-
-.flex-control li:not(.flex-active):before {
-    content: '';
-    right: 0;
-    width: 0;
-    height: 2px;
-    display: block;
-    top: 0;
-    position: absolute;
-    background: {color:Body text color};
-    transition: all .25s ease;
-    -o-transition: all .25s ease;
-    -ms-transition: all .25s ease;
-    -moz-transition: all .25s ease;
-    -webkit-transition: all .25s ease;
-}
-
-.flex-control li:not(.flex-active):hover:before {
-    left: 0;
-    width: 48px;
-}
-
-.flex-active:before {
-    content: '';
-    right: 0;
-    width: 0;
-    height: 2px;
-    display: block;
-    top: 0;
-    position: absolute;
-    background: {color:Body text color};
-    transition: all .33s ease;
-    -o-transition: all .33s ease;
-    -ms-transition: all .33s ease;
-    -moz-transition: all .33s ease;
-    -webkit-transition: all .33s ease;
-}
-
-.flex-active:before {
-    left: 0;
-    width: 48px;
-}
-
-.flex-direction-nav {
-    position: absolute;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    top: 50%;
-    left: 0;
-    display: flex;
-}
-
-@media only screen and (max-width: 767px) {
-    .flex-direction-nav {
-        display: none;
-    }
-    .flex-control {
-        top: 280px;
-    }
-}
-
-.flex-direction-nav li a {
-    color: {color:Body text color};
-}
-
-.flex-direction-nav li a:hover {
-    color: {color:Accent color};
-}
-
-.flex-direction-nav li {
-    display: inline-block;
-}
-
-.flex-prev {
+.description {
     margin-left: 36px;
-}
-
-.flex-prev:before {
-    visibility: visible;
-	position: absolute;
-	top: 0;
-	left: 0;
-	font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    content: "\f0d9";
-    font-size: 24px;
-}
-
-.flex-next,
-.flex-prev{
-    visibility: hidden;
-	position: relative;
-}
-
-.flex-next:before {
-    visibility: visible;
-	position: absolute;
-	top: 0;
-	right: 0;
-	font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    content: "\f0da";
-    font-size: 24px;
-}
-
-.flex-direction-nav >li:nth-child(2) {
-    margin-left: auto;
-    margin-right: 36px;
-    text-align: right;
-}
-
-.flex-caption {
-  width: 96%;
-  padding: 0 2%;
-  left: 0;
-  top: 2px;
-  color: #fff;
-  margin: 12px 0;
-  font-size: 14px;
-  line-height: 18px;
-  position: absolute;
-  font-size: .7em;
-  font-weight: 300;
-  z-index: 12;
-}
-
-@media only screen and (min-width: 768px) {
-    .flex-caption {
-        top: 12px;
-    }
-}
-
-.flex-caption a {
-    color: {color:Header text color};
-    text-decoration: underline;
+    font-size: .8em;
 }
 
 /* main */
 
 .container {
   margin: 0 auto;
-  padding: 0;
-  max-width: 1200px;
+  padding-top: 26px;
   overflow: hidden;
   height: 100%;
-}
-
-@media only screen and (min-width: 1920px) {
-    .container {
-        max-width: 1600px;
-    }
+  transition: all .25s ease;
+  -o-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -webkit-transition: all .25s ease;
 }
 
 .permalinkpage .container {
@@ -574,12 +374,6 @@ input {
   margin: 0 auto;
   padding: 0;
   overflow: hidden;
-}
-
-@media only screen and (min-width: 1024px) {
-     #posts {
-        margin-top: 18px;
-    }
 }
 
 #posts {
@@ -599,23 +393,48 @@ article {
 
 @media only screen and (min-width: 768px) {
     .indexpage article {
-        width: 49.9%;
+        width: 50%;
     }
 }
 
-@media only screen and (min-width: 1920px) {
+@media only screen and (min-width: 1024px) {
     .indexpage article {
         width: 33.33%;
     }
 }
 
 article .post-inner {
-  margin: 0;
-  padding: 36px;
+    overflow: hidden;
+}
+
+article.type_chat .post-inner,
+article.type_answer .post-inner,
+article.type_text .post-inner,
+article.type_quote .post-inner,
+article.type_link .post-inner {
+    padding: 22px;
+}
+
+article.type_text .post-inner,
+article.type_quote .post-inner,
+article.type_audio .post-inner {
+    background: {color:Post Background color};
+}
+
+article.type_link .post-inner {
+    background: {color:Link Background color};
+}
+
+article.type_chat .post-inner {
+    background: {color:Chat Background color};
+}
+
+article.type_answer .post-inner {
+    background: {color:Answer Background color};
 }
 
 article .post-header {
-    margin-bottom: 40px;
+    margin: 20px 0;
     color: {color:Title text color};
 }
 
@@ -630,8 +449,14 @@ article.type_text video {
         max-width: 100%;
 }
 
+.content blockquote {
+    border-left: 1px solid {color:Body text color};
+    margin: 15px 12px 12px;
+    padding-left: 15px;
+}
 
-/* photo */
+
+/* media */
 
 article.type_photo img,
 article.type_link img,
@@ -641,26 +466,46 @@ article blockquote img{
         width: 100%;
         height: auto;
         vertical-align: bottom;
-    }
-
-.content blockquote {
-    border-left: 1px solid {color:Body text color};
-    margin: 15px 12px 12px;
-    padding-left: 15px;
 }
 
-/* video */
+.indexpage article.type_photo .post-inner:hover img {
+    transform: scale(1.1);
+    transition: all .33s ease;
+    -o-transition: all .33s ease;
+    -ms-transition: all .33s ease;
+    -moz-transition: all .33s ease;
+    -webkit-transition: all .33s ease;
+}
+
+.indexpage article.type_photoset .post-inner:hover img {
+    transform: none;
+}
+
+article.type_photo .post-inner img {
+    transition: all .5s ease;
+    -o-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -webkit-transition: all .5s ease;
+}
+
+.indexpage article.type_link .post-footer,
+.indexpage article.type_photo .post-footer,
+.indexpage article.type_photoset .post-footer,
+.indexpage article.type_audio .post-footer,
+.indexpage article.type_video .post-footer {
+    display: none;
+}
 
 .type_video .video-container {
     height: 0;
     padding-bottom: 67.5%;
     position: relative;
     overflow: hidden;
-    margin-bottom: 12px;
 }
 
 .type_video .video-container iframe {
-    background: {color:Light grey color};
+    background: {color:Video Background color};
 }
 
 .type_video .video-container embed,
@@ -693,6 +538,12 @@ article blockquote img{
 .type_audio .tumblr_audio_player,
 .type_audio .soundcloud_audio_player {
     width: 100%;
+}
+
+/* chat */
+
+.chat-msg {
+    font-size: .95em;
 }
 
 /* answer */
@@ -797,8 +648,17 @@ article blockquote img{
 }
 
 /* link */
+
+.type_link {
+    color: {color:Link text color};
+}
+
 .link {
     text-decoration: underline;
+}
+
+.link-wrapper a {
+    color: {color:Link text color};
 }
 
 .type_link .link i {
@@ -919,7 +779,7 @@ ul.counts {
 
 .share.active {
     color: {color:Footer text color};
-    background: {color:Theme color};
+    background-color: #363636;
 }
 
 ul.share-menu li {
@@ -1047,7 +907,7 @@ ul.share-menu li a:hover {
 .footer-wrapper {
     width: 100%;
     margin-top: 40px;
-    background: {color:Theme color};
+    background: {color:Footer Background color};
 }
 
 footer {
@@ -1207,20 +1067,17 @@ s.parentNode.insertBefore(g,s)}(document,'script'));
 
 <div id="loader" class="loading"></div>
 <div class="wrapper clearfix">
-<!-- Header -->
+
 <div class="header-wrap clearfix">
   <div class="header clearfix">
 
-  <div class="nav">
-    <a href="{BlogURL}"><h2 class="site-title">{Title}</h2></a>
+  <ul class="toggle-menu">
 
-      <a href="javascript:void(0)" id="toggle" class="toggle">
-          <div></div>
-          <div></div>
-          <div></div>
-      </a>
-
-      <ul class="toggle-menu">
+        {block:IfShowsearchform}
+          <li class="search not-link">
+                        <form class="search-form" action="/search" accept-charset="utf-8" method="get">
+                            <input class="input-search" type="text" name="q" id="search" size="16" value="{SearchQuery}" placeholder="{lang:Search}"/> </form></li>
+          {/block:IfShowsearchform}
 
           {block:IfShowhomelink}
           <li><a href="/">{text:Home link text}</a></li>
@@ -1248,31 +1105,21 @@ s.parentNode.insertBefore(g,s)}(document,'script'));
           <li><a href="/archive">{lang:Archive}</a></li>
           {/block:IfShowArchive}
 
-          {block:IfShowsearchform}
-          <li class="search not-link">
-                        <form class="search-form" action="/search" accept-charset="utf-8" method="get">
-                            <input class="input-search" type="text" name="q" id="search" size="16" value="{SearchQuery}" placeholder="{lang:Search}"/> </form></li>
-          {/block:IfShowsearchform}
-
       </ul><!-- /.toggle-menu -->
 
+  <div class="nav">
+    {block:ShowTitle}<h2 class="site-title"><a href="{BlogURL}">{Title}</a></h2>{/block:ShowTitle}
+
+      <a href="javascript:void(0)" id="toggle" class="toggle">
+          <div></div>
+          <div></div>
+          <div></div>
+      </a>
     </div> <!-- /.nav -->
+
+    {block:ShowDescription}<div class="description"><p>{Description}</p></div>{/block:ShowDescription}
+
   </div> <!-- /.header -->
-
-    <div class="flexslider">
-      <ul class="slides">
-      <li><img src="{text:Slide 1 img}"/>
-          <p class="flex-caption"><a href="{text:Slide 1 link}">{text:Slide 1 caption}</a></p></li>
-      <li><img src="{text:Slide 2 img}"/><p class="flex-caption"><a href="{text:Slide 2 link}">{text:Slide 2 caption}</a></p></li>
-      <li><img src="{text:Slide 3 img}"/><p class="flex-caption"><a href="{text:Slide 3 link}">{text:Slide 3 caption}</a></p></li>
-      </ul>
-    </div> <!-- /.slider -->
-
-    <ul class="flex-control">
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
 
 </div> <!-- /.header-wrap -->
 <!-- Header End -->
@@ -1307,47 +1154,29 @@ s.parentNode.insertBefore(g,s)}(document,'script'));
     <h2>{block:IndexPage}<a href="{Permalink}">{Title}</a>{/block:IndexPage} {block:PermalinkPage}{Title}{/block:PermalinkPage}</h2>
 </div>
 {/block:Title}
-{block:Body}<div class="content">{Body}</div>{/block:Body}
+{block:Body}
+<div class="content">{Body}</div>
+{/block:Body}
 {/block:Text}
 <!-- text post -->
 
 
 
 {block:Photo}
-<figure class="post-figure">
-{block:IfPhotoslinktopermalink}
-  {block:IndexPage}<a href="{Permalink}" title="{Title}">{/block:IndexPage}
-  {block:PermalinkPage}<a href="{Permalink}" onclick="Tumblr.Lightbox.init([{
-      'width'    : '{PhotoWidth-HighRes}',
-      'height'   : '{PhotoHeight-HighRes}',
-      'low_res'  : '{PhotoURL-HighRes}',
-      'high_res' : '{PhotoURL-HighRes}'
-    }]); return false;">{/block:PermalinkPage}
-  	{block:IndexPage}<img src="{PhotoURL-500}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" />{/block:IndexPage}
-  	{block:PermalinkPage}<img src="{PhotoURL-HighRes}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" />{/block:PermalinkPage}
-  </a>
-{/block:IfPhotoslinktopermalink}
 
-{block:IfNotPhotoslinktopermalink}
-  {LinkOpenTag}
-  <a href="{Permalink}" onclick="Tumblr.Lightbox.init([{
-      'width'    : '{PhotoWidth-HighRes}',
-      'height'   : '{PhotoHeight-HighRes}',
-      'low_res'  : '{PhotoURL-HighRes}',
-      'high_res' : '{PhotoURL-HighRes}'
-    }]); return false;">
-      {block:IndexPage}<img src="{PhotoURL-500}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" />{/block:IndexPage}
-      {block:PermalinkPage}<img src="{PhotoURL-HighRes}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" />{/block:PermalinkPage}
-  </a>
-  {LinkCloseTag}
-{/block:IfNotPhotoslinktopermalink}
+<figure class="post-figure">
+  	{block:IndexPage}<a href="{Permalink}"><img src="{PhotoURL-500}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" /></a>{/block:IndexPage}
+
+  	{block:PermalinkPage}{LinkOpenTag}<img src="{PhotoURL-HighRes}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" />{LinkCloseTag}{/block:PermalinkPage}
 
 </figure>
 
   {block:Caption}
+  {block:PermalinkPage}
   <figcaption class="content">
           {Caption}
   </figcaption>
+  {/block:PermalinkPage}
   {/block:Caption}
 {/block:Photo}
 <!-- photo post -->
@@ -1361,9 +1190,11 @@ s.parentNode.insertBefore(g,s)}(document,'script'));
   </figure>
 
   {block:Caption}
+  {block:PermalinkPage}
   <figcaption class="content">
           {Caption}
   </figcaption>
+  {/block:PermalinkPage}
   {/block:Caption}
 {/block:Photoset}
 <!-- photoset post -->
@@ -1374,9 +1205,11 @@ s.parentNode.insertBefore(g,s)}(document,'script'));
 </div>
 
 {block:Caption}
+{block:PermalinkPage}
 <div class="content">
         {Caption}
 </div>
+{/block:PermalinkPage}
 {/block:Caption}
 {/block:Video}
 <!-- Video Post -->
@@ -1393,9 +1226,11 @@ s.parentNode.insertBefore(g,s)}(document,'script'));
 {/block:ExternalAudio}
 
 {block:Caption}
+{block:PermalinkPage}
 <div class="content">
         {Caption}
 </div>
+{/block:PermalinkPage}
 {/block:Caption}
 {/block:Audio}
 <!-- Audio Post -->
@@ -1504,7 +1339,7 @@ s.parentNode.insertBefore(g,s)}(document,'script'));
       <ul class="counts clearfix">
       {block:NoteCount}
       <li class="note-count">
-          {block:IndexPage}<a href="{Permalink}#notes">{/block:IndexPage}{block:PermalinkPage}<a class="tumblr-note-count" href="#notes">{/block:PermalinkPage}
+          {block:IndexPage}<a href="{Permalink}#notes"></a>{/block:IndexPage}{block:PermalinkPage}<a class="tumblr-note-count" href="#notes">{/block:PermalinkPage}
               {NoteCountWithLabel}
           </a>
       </li> <!-- /.note-count -->
@@ -1523,7 +1358,6 @@ s.parentNode.insertBefore(g,s)}(document,'script'));
 
             <div class="pop-menu">
                 <ul class="share-menu">
-                <li class="open-in-app"><a href="javascript:void(0)" class="share-item open-in-app" data-post="{PostID}"><i class="fab fa-tumblr-square"></i></a></li>
                 <li><a href="https://facebook.com/sharer.php?u={URLEncodedPermalink}&amp;t={URLEncodedTitle}" class="share-item facebook" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
                 <li><a href="https://twitter.com/intent/tweet?text={URLEncodedTweetSummary}" class="share-item twitter" target="_blank"><i class="fab fa-twitter"></i></a></li>
                 <li><a href="{EmbedUrl}" class="share-item permalink"><i class="fas fa-link"></i></a></li>
@@ -1552,26 +1386,27 @@ s.parentNode.insertBefore(g,s)}(document,'script'));
 
 {block:IndexPage}
 {block:Pagination}
-<div class="pagination-wrap">
-    <ul class="pagination">
-	    {block:PreviousPage}<li><a href="{PreviousPage}" class="prev">New</a></li>{/block:PreviousPage}
+                    <div class="pagination-wrap">
+                        <ul class="pagination">
+                        {block:NextPage}
+                        <li class="previous-page"><a href="{NextPage}">Older Posts</a></li>
+                        {/block:NextPage}
 
-		{block:JumpPagination length="6"}{block:CurrentPage}
-            <li><span class="current_page">{PageNumber}</span></li>
-        {/block:CurrentPage}{block:JumpPage}
-            <li><a class="jump_page" href="{URL}">{PageNumber}</a></li>
-        {/block:JumpPage}{/block:JumpPagination}
+                        {block:PreviousPage}
+                        <li class="next-page"><a href="{PreviousPage}">Newer Posts</a></li>
+                        {/block:PreviousPage}
 
-        {block:NextPage}<li><a href="{NextPage}" class="next">Prev</a></li>{/block:NextPage}
-	</ul>
-</div>
+                        </ul>
+
+                    </div>
 {/block:Pagination}
 {/block:IndexPage}
 
 </div> <!-- /.container -->
 <div class="footer-wrapper clearfix">
         <footer id="footer">
-            <small class="copyright">&copy;Midori</small>
+            <small class="copyright">&copy;{Title}. Theme by <a href="https://www.tumblr.com/kwanfushing">kwanfushing</a>.</small>
+
             <ul class="footer-nav">
                 {block:IfShowhomelink}
                   <li><a href="/">{text:Home link text}</a></li>
@@ -1621,32 +1456,46 @@ s.parentNode.insertBefore(g,s)}(document,'script'));
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.1.2/masonry.pkgd.js"></script>
-<script src="https://static.tumblr.com/iwtk77u/Yhym2yygt/jquery.imagesloaded.min.js"></script>
+<script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
+<script src="https://static.tumblr.com/0xll37k/6QRn49wdh/infinitescroll.js"></script>
+
 <script>
 $(function() {
-    var $container = $('.indexpage #posts');
-    var $msnry = $('.indexpage #posts').masonry({
-        itemSelector:"article",
-        percentPosition: true
+    var msnry;
+    var imgLoad;
+    var $tumblelog = $('.indexpage .main');
+    var content = document.querySelector("article");
+    msnry = new Masonry(".indexpage .main",{itemSelector:"article", percentPosition: true});   //Initialise Masonry
+    imgLoad = imagesLoaded(".main");
+    imgLoad.on('always', function(){
+        content.style.opacity = "1";    //appears the content block once initial images are loaded
     });
-  $container.imagesLoaded( function() {
-    $('.photoset-grid-lightbox').photosetGrid({
-          highresLinks: true,
-          rel: 'withhearts-gallery',
-          gutter: '4px',
-
-          onComplete: function(){
-            $msnry.masonry('layout');
-          }
+    imgLoad.on('progress', function(instance, image){
+        $(image.img).closest('.photoset-grid-lightbox').photosetGrid({gutter:'2px', onComplete:function(){msnry.layout();}});    //Grids up photosets nicely
+        msnry.layout();
+    });
+    $(window).load(function(){      //Waits a sec before running infinite scroll
+        $tumblelog.infinitescroll({ //Initialises the infinite scroll
+        navSelector: ".pagination",
+        nextSelector: ".pagination .previous-page a",
+        itemSelector: "article",
+        bufferPx: 3000, //Since photosets can get quite long, and this is a 3 column theme, the buffer is extra long to stop people from having to scroll up too much
+        prefill:true,
+        },
+        function(newElements){
+            var $newElems = $(newElements).css({opacity:0});
+            $newElems.imagesLoaded(function(){
+                msnry.appended($newElems);
+                $('.photoset-grid-lightbox').photosetGrid({gutter:'2px', onComplete:function(){msnry.layout();}});
+                msnry.layout();;
+                $newElems.animate({opacity:1});
+            });
         });
+    });
 
-    $msnry.masonry('layout');
 
-  });
 });
 </script>
-
-<script src="https://static.tumblr.com/wdg4six/DaLnhncof/jquery.flexslider.min.js"></script>
 
 <script>
     $(window).load(function() {
@@ -1654,18 +1503,6 @@ $(function() {
 
         $('.wrapper').delay(400).animate({ "opacity": "1" }, 400 );
     });
-</script>
-
-
-<script>
-    $(window).load(function() {
-        $('.flexslider').flexslider({
-            animation: "slide",
-            manualControls: $(".flex-control li"),
-            useCSS: false
-        });
-});
-
 </script>
 
 <script>
