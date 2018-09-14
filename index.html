@@ -1514,12 +1514,10 @@ $(function() {
 </script>
 
 <script>
-    $(function() {
-
-       $('.share').click(function() {
-           $(this).closest('div').find('.pop-menu').toggleClass('active');
+    $(document).on("click",".share",function(e) {
+        $(this).closest('div').find('.pop-menu').toggleClass('active');
            $(this).toggleClass('active');
-        });
+
     });
 </script>
 
